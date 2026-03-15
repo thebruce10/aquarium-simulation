@@ -59,6 +59,8 @@ html,body {
 
 .subMenuBar {
     width: 0px;
+    display: none;
+    z-index: 1;
 }
 
 .subMenuList {

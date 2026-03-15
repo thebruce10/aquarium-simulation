@@ -41,7 +41,16 @@ function init() {
     camera.lookAt(scene.position);
 
     renderer.domElement.setAttribute("aria-label", "Interactive 3D Aquarium Simulation");
-    document.body.appendChild(renderer.domElement);
+    renderer.domElement.setAttribute("id", "threeJSCanvas");
+
+    if (document.getElementById("threeJSCanvas")) {
+        console.log("found canvas - replacing canvas");
+        document.getElementById("threeJSCanvas").replaceWith(renderer.domElement);
+    } else {
+        console.log("no canvas - adding canvas");
+        document.body.appendChild(renderer.domElement);
+    }
+    
 
     tankX = 100;
     tankY = 50;
@@ -59,9 +68,9 @@ function init() {
 
     addBoundaries(scene, tankX, tankY, tankZ);
 
-    // for (let i = 0; i < 100; i++) {
-        // addNeonTetra(scene);
-    // }
+    for (let i = 0; i < 100; i++) {
+        addNeonTetra(scene);
+    }
 
     counter = 0;
     render();
@@ -94,6 +103,48 @@ function resize() {
     renderer.setSize(window.innerWidth, window.innerHeight);
 }
 
+function clickHandler(event) {
+    console.log(event.target.id);
+
+    //file button shows file sub menu
+    if (event.target.id == "fileMenuButton") {
+        let fileSubMenuBar = document.getElementById("fileSubMenuBar");
+
+        if (fileSubMenuBar.style.display == "none"){
+            fileSubMenuBar.style.display = "block";
+        } else {
+            fileSubMenuBar.style.display = "none";
+        }
+
+    } else {
+        let fileSubMenuBar = document.getElementById("fileSubMenuBar");
+        fileSubMenuBar.style.display = "none";
+    }
+
+    //reset button initialises everything again
+    if (event.target.id == "resetSubMenuButton") {
+        init();
+    }
+
+    if (event.target.id == "viewMenuButton") {
+        let viewSubMenuBar = document.getElementById("viewSubMenuBar");
+
+        if (viewSubMenuBar.style.display == "none"){
+            viewSubMenuBar.style.display = "block";
+        } else {
+            viewSubMenuBar.style.display = "none";
+        }
+
+    } else {
+        let viewSubMenuBar = document.getElementById("viewSubMenuBar");
+        viewSubMenuBar.style.display = "none";
+    }
+
+
+}
+
 
 window.addEventListener("load", init);
 window.addEventListener("resize", resize);
+
+document.addEventListener("click", clickHandler);
