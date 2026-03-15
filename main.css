@@ -7,7 +7,7 @@ html,body {
 }
 
 
-#menuBar {
+.menuBar {
     position: absolute;
     top: 0px;
     height: 30px;
@@ -16,25 +16,25 @@ html,body {
     border: 1px solid #242438;
 }
 
-#menuList {
+.menuList {
     list-style: none;
     margin: 0px;
     padding: 0px;
 }
 
-#menuItem {
+.menuItem {
     height: 30px;
     margin: 0px;
     padding: 0px;
 }
-#menuItem.left {
+.menuItem.left {
     float: left;
 }
-#menuItem.right {
+.menuItem.right {
     float: right;
 }
 
-#menuButton {
+.menuButton {
     height: 30px;
     font-size: 17px;
     color: #ffffff;
@@ -44,24 +44,24 @@ html,body {
     padding: 0px;
     text-align: center;
 }
-#menuButton.large {
+.menuButton.large {
     width: 90px;
 }
-#menuButton.small {
+.menuButton.small {
     width: 45px;
 }
-#menuButton:hover {
+.menuButton:hover {
     background-color: #242438;
 }
-#menuButton:active {
+.menuButton:active {
     background-color: #000000;
 }
 
-#subMenuBar {
+.subMenuBar {
     width: 0px;
 }
 
-#subMenuList {
+.subMenuList {
     list-style: none;
     width: fit-content;
     margin: 0px;
@@ -71,13 +71,13 @@ html,body {
     background-color: #12121C;
 }
 
-#subMenuItem {
+.subMenuItem {
     height: 30px;
     margin: 0px;
     padding: 0px;
 }
 
-#subMenuButton {
+.subMenuButton {
     height: 30px;
     width: 135px;
     font-size: 17px;
@@ -88,15 +88,15 @@ html,body {
     padding: 5px;
     text-align: left;
 }
-#subMenuButton:hover {
+.subMenuButton:hover {
     background-color: #242438;
 }
-#subMenuButton:active {
+.subMenuButton:active {
     background-color: #000000;
 }
 
 
-#bottomBar {
+.bottomBar {
     position: absolute;
     bottom: 0px;
     height: 30px;
@@ -105,7 +105,7 @@ html,body {
     border: 1px solid #242438;
 }
 
-#bottomText {
+.bottomText {
     font-size: 17px;
     color: #ffffff;
     line-height: 30px;
@@ -114,12 +114,12 @@ html,body {
     display: flex;
     align-items: center;
 }
-#bottomText img {
+.bottomText img {
     height: 30px;
 }
-#bottomText.left {
+.bottomText.left {
     float: left;
 }
-#bottomText.right {
+.bottomText.right {
     float: right;
 }
