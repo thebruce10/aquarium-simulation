@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Aquarium Simulation</title>
+    <link rel="icon" type="/image/x-icon" href="images/favicon.ico">
+
+    <script src="libs/three.js"></script>
+    
+    <script src="libs/physi.js"></script>
+    <script src="libs/OrbitControls.js"></script>
+    <script src="libs/MTLLoader.js"></script>
+    <script src="libs/OBJMTLLoader.js"></script>
+
+    <link href="main.css" rel="stylesheet">
+    
+</head>
+<body>
+    <div id="menuBar">
+        <ul id="menuList">
+            <li id="menuItem" class="left">
+                <button id="menuButton" class="large">File</button>
+                <div id="subMenuBar" class="subMenuBar1">
+                    <ul id="subMenuList">
+                        <li id="subMenuItem"><button id="subMenuButton">Reset</button></li>
+                    </ul>
+                </div>
+            </li>
+
+            <li id="menuItem" class="left">
+                <button id="menuButton" class="large">View</button>
+                <div id="subMenuBar" class="subMenuBar1">
+                    <ul id="subMenuList">
+                        <li id="subMenuItem"><button id="subMenuButton">Editor</button></li>
+                        <li id="subMenuItem"><button id="subMenuButton">Immersive</button></li>
+                    </ul>
+                </div>
+            </li>
+
+            <li id="menuItem" class="right"><button id="menuButton" class="small">🗑️</button></li>
+            <li id="menuItem" class="right"><button id="menuButton" class="small">📸</button></li>
+        </ul>
+        
+    </div>
+
+    
+
+
+
+
+    <div id="bottomBar">
+        <span id="bottomText" class="left"><img src="images/favicon.svg">&nbspAquarium Simulation</span>
+        <span id="bottomText" class="right"><a href="/"><img src="images/the-dank-web-logo.png"></a></span>
+    </div>
+
+
+    <script src="main.js" type="module"></script>
+
+</body>
+</html>

@@ -1,0 +1,125 @@
+html,body {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+    overflow: hidden;
+    font-family: 'Open Sans', sans-serif;
+}
+
+
+#menuBar {
+    position: absolute;
+    top: 0px;
+    height: 30px;
+    width: 100%;
+    background-color: #12121C;
+    border: 1px solid #242438;
+}
+
+#menuList {
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+}
+
+#menuItem {
+    height: 30px;
+    margin: 0px;
+    padding: 0px;
+}
+#menuItem.left {
+    float: left;
+}
+#menuItem.right {
+    float: right;
+}
+
+#menuButton {
+    height: 30px;
+    font-size: 17px;
+    color: #ffffff;
+    background-color: #12121C;
+    border: 1px solid #242438;
+    margin: 0px;
+    padding: 0px;
+    text-align: center;
+}
+#menuButton.large {
+    width: 90px;
+}
+#menuButton.small {
+    width: 45px;
+}
+#menuButton:hover {
+    background-color: #242438;
+}
+#menuButton:active {
+    background-color: #000000;
+}
+
+#subMenuBar {
+    width: 0px;
+}
+
+#subMenuList {
+    list-style: none;
+    width: fit-content;
+    margin: 0px;
+    padding: 0px;
+    overflow: visible;
+    border: 1px solid #242438;
+    background-color: #12121C;
+}
+
+#subMenuItem {
+    height: 30px;
+    margin: 0px;
+    padding: 0px;
+}
+
+#subMenuButton {
+    height: 30px;
+    width: 135px;
+    font-size: 17px;
+    color: #ffffff;
+    background: none;
+    border: 0px;
+    margin: 0px;
+    padding: 5px;
+    text-align: left;
+}
+#subMenuButton:hover {
+    background-color: #242438;
+}
+#subMenuButton:active {
+    background-color: #000000;
+}
+
+
+#bottomBar {
+    position: absolute;
+    bottom: 0px;
+    height: 30px;
+    width: 100%;
+    background-color: #12121C;
+    border: 1px solid #242438;
+}
+
+#bottomText {
+    font-size: 17px;
+    color: #ffffff;
+    line-height: 30px;
+    padding-left: 5px;
+    padding-right: 5px;
+    display: flex;
+    align-items: center;
+}
+#bottomText img {
+    height: 30px;
+}
+#bottomText.left {
+    float: left;
+}
+#bottomText.right {
+    float: right;
+}
