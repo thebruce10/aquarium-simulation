@@ -45,7 +45,7 @@ export function addNeonTetra(scene) {
                 "collision",
                 (object) => {
                     if (object.userData.type == "boundary") {
-                        console.log(object.userData.boundary)
+                        // console.log(object.userData.boundary)
                         
                         neonTetraPhysicsMesh.setAngularVelocity(0,100,0); //I don't think doing stuff to neonTetraPhysicsMesh works
                         

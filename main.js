@@ -44,10 +44,10 @@ function init() {
     renderer.domElement.setAttribute("id", "threeJSCanvas");
 
     if (document.getElementById("threeJSCanvas")) {
-        console.log("found canvas - replacing canvas");
+        //there is already a canvas - replace it
         document.getElementById("threeJSCanvas").replaceWith(renderer.domElement);
     } else {
-        console.log("no canvas - adding canvas");
+        //no canvas - add a new one
         document.body.appendChild(renderer.domElement);
     }
     
@@ -74,8 +74,6 @@ function init() {
 
     counter = 0;
     render();
-    
-    renderer.domElement.toDataURL("image/png");
 
     console.log(scene);
 }
@@ -103,6 +101,11 @@ function resize() {
     renderer.setSize(window.innerWidth, window.innerHeight);
 }
 
+
+function takeScreenshot() {
+
+}
+
 function clickHandler(event) {
     console.log(event.target.id);
 
@@ -123,9 +126,21 @@ function clickHandler(event) {
 
     //reset button initialises everything again
     if (event.target.id == "resetSubMenuButton") {
+        let resetPopup = document.getElementById("resetPopup");
+        resetPopup.style.display = "block";
+    }
+    if (event.target.id == "yesResetPopupButton") {
         init();
+        let resetPopup = document.getElementById("resetPopup");
+        resetPopup.style.display = "none";
+    }
+    if (event.target.id == "noResetPopupButton") {
+        console.log("reset aborted by user");
+        let resetPopup = document.getElementById("resetPopup");
+        resetPopup.style.display = "none";
     }
 
+    //view button shows view sub menu
     if (event.target.id == "viewMenuButton") {
         let viewSubMenuBar = document.getElementById("viewSubMenuBar");
 
@@ -140,6 +155,37 @@ function clickHandler(event) {
         viewSubMenuBar.style.display = "none";
     }
 
+    //editor button shows all the tools
+    if (event.target.id == "editorSubMenuButton") {
+        console.log("switch to editor view");
+    }
+
+    //immersive button hides all the tools
+    if (event.target.id == "immersiveSubMenuButton") {
+        console.log("switch to immersive view");
+    }
+
+    //delete button deletes an object
+    if (event.target.id == "deleteMenuButton") {
+        let deletePopup = document.getElementById("deletePopup");
+        deletePopup.style.display = "block";
+    }
+    if (event.target.id == "yesDeletePopupButton") {
+        console.log("delete the selected object");
+        let deletePopup = document.getElementById("deletePopup");
+        deletePopup.style.display = "none";
+    }
+    if (event.target.id == "noDeletePopupButton") {
+        console.log("delete aborted by user");
+        let deletePopup = document.getElementById("deletePopup");
+        deletePopup.style.display = "none";
+    }
+    
+
+    //screenshot button takes a screenshot
+    if (event.target.id == "screenshotMenuButton") {
+        takeScreenshot();
+    }
 
 }
 

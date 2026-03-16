@@ -39,8 +39,8 @@
                 </div>
             </li>
 
-            <li class="menuItem right"><button class="menuButton small">🗑️</button></li>
-            <li class="menuItem right"><button class="menuButton small">📸</button></li>
+            <li class="menuItem right"><button class="menuButton small" id="deleteMenuButton">🗑️</button></li>
+            <li class="menuItem right"><button class="menuButton small" id="screenshotMenuButton">📸</button></li>
         </ul>
         
     </div>
@@ -49,10 +49,22 @@
 
 
 
+    <div class="popup" id="resetPopup">
+        <span class="popupText">Are you sure you want to delete the selected object?<br>This will remove everything in the scene.</span>
+        <button class="popupButton secondary" id="noResetPopupButton">No</button>
+        <button class="popupButton primary" id="yesResetPopupButton">Yes</button>
+    </div>
+
+    <div class="popup" id="deletePopup">
+        <span class="popupText">Are you sure you want to delete the selected object?</span>
+        <button class="popupButton secondary" id="noDeletePopupButton">No</button>
+        <button class="popupButton primary" id="yesDeletePopupButton">Yes</button>
+    </div>
+
 
     <div class="bottomBar">
         <span class="bottomText left"><img src="images/favicon.svg">&nbspAquarium Simulation</span>
-        <span class="bottomText right"><a href="/"><img src="images/the-dank-web-logo.png"></a></span>
+        <!-- <span class="bottomText right"><a href="/"><img src="images/the-dank-web-logo.png"></a></span> -->
     </div>
 
 
