@@ -29,10 +29,11 @@ export function addNeonTetra(scene) {
                 1
             );
 
-
             neonTetraPhysicsMesh.position.copy(neonTetraModel.position);
             neonTetraPhysicsMesh.rotation.copy(neonTetraModel.rotation);
             neonTetraPhysicsMesh.scale.copy(neonTetraModel.scale);
+
+
 
             neonTetraPhysicsMesh.name = "neonTetra";
 
@@ -41,17 +42,15 @@ export function addNeonTetra(scene) {
             neonTetraPhysicsMesh.userData.endMovement = 0;
             neonTetraPhysicsMesh.userData.endRest = 0;
 
-            neonTetraPhysicsMesh.addEventListener(
-                "collision",
-                (object) => {
-                    if (object.userData.type == "boundary") {
-                        // console.log(object.userData.boundary)
-                        
-                        neonTetraPhysicsMesh.setAngularVelocity(0,100,0); //I don't think doing stuff to neonTetraPhysicsMesh works
-                        
-                    }
-                }
-            );
+
+            neonTetraPhysicsMesh.lookAt(
+                new THREE.Vector3(
+                    Math.random()*20-10,
+                    Math.random()*20-10,
+                    Math.random()*20-10
+                )
+            )
+
 
             scene.add(neonTetraPhysicsMesh);
 

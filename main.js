@@ -3,6 +3,8 @@ import { addBoundaries } from "./boundaries.mjs";
 import { addNeonTetra } from "./fish.mjs";
 import { moveFish } from "./fishMovement.mjs";
 import { addAxes } from "./tools.mjs";
+import { addCoral } from "./decorations.mjs";
+import { addSeaweed } from "./decorations.mjs";
 
 let renderer;
 let scene;
@@ -26,10 +28,10 @@ function init() {
         0.1, //near plane
         10000 //far plane
     );
-    
+
     renderer = new THREE.WebGLRenderer();
     renderer.preserveDrawingBuffer = true; //for screenshots
-    renderer.setClearColor("#000000", 1,4);
+    renderer.setClearColor("#000000", 1, 4);
     renderer.setSize(window.innerWidth, window.innerHeight);
 
     camControls = new THREE.OrbitControls(camera, renderer.domElement);
@@ -50,7 +52,7 @@ function init() {
         //no canvas - add a new one
         document.body.appendChild(renderer.domElement);
     }
-    
+
 
     tankX = 100;
     tankY = 50;
@@ -71,6 +73,9 @@ function init() {
     for (let i = 0; i < 100; i++) {
         addNeonTetra(scene);
     }
+    // addNeonTetra(scene);
+    // addCoral(scene, tankY);
+    addSeaweed(scene, tankY);
 
     counter = 0;
     render();
@@ -81,16 +86,15 @@ function init() {
 
 function render() {
     renderer.render(scene, camera);
-    requestAnimationFrame(render);
 
     camControls.update()
 
-    moveFish(scene, counter);
-
-
-
 
     scene.simulate();
+    moveFish(scene, counter, tankX, tankY, tankZ);
+
+    
+    requestAnimationFrame(render);
     counter++;
 }
 
@@ -103,6 +107,27 @@ function resize() {
 
 
 function takeScreenshot() {
+    //code from https://stackoverflow.com/questions/26193702/three-js-how-can-i-make-a-2d-snapshot-of-a-scene-as-a-jpg-image
+    let imgData;
+
+    let strMime = "image/png";
+    let strDownloadMime = "image/octet-stream";
+
+    renderer.render(scene, camera);
+    imgData = renderer.domElement.toDataURL(strMime);
+
+    let date = new Date();
+
+    let link = document.createElement('a'); //create a link element
+    if (typeof link.download === 'string') {
+        document.body.appendChild(link);
+        link.download = `aquarium_simulation_screenshot_${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}.png`;
+        link.href = imgData.replace(strMime, strDownloadMime);
+        link.click(); //download the file from the link
+        document.body.removeChild(link); //remove the link when done
+    } else {
+        location.replace(uri);
+    }
 
 }
 
@@ -113,7 +138,7 @@ function clickHandler(event) {
     if (event.target.id == "fileMenuButton") {
         let fileSubMenuBar = document.getElementById("fileSubMenuBar");
 
-        if (fileSubMenuBar.style.display == "none"){
+        if (fileSubMenuBar.style.display == "none") {
             fileSubMenuBar.style.display = "block";
         } else {
             fileSubMenuBar.style.display = "none";
@@ -127,24 +152,24 @@ function clickHandler(event) {
     //reset button initialises everything again
     if (event.target.id == "resetSubMenuButton") {
         let resetPopup = document.getElementById("resetPopup");
-        resetPopup.style.display = "block";
+        resetPopup.style.display = "block"; //show reset popup
     }
     if (event.target.id == "yesResetPopupButton") {
         init();
         let resetPopup = document.getElementById("resetPopup");
-        resetPopup.style.display = "none";
+        resetPopup.style.display = "none"; //hide reset popup
     }
     if (event.target.id == "noResetPopupButton") {
         console.log("reset aborted by user");
         let resetPopup = document.getElementById("resetPopup");
-        resetPopup.style.display = "none";
+        resetPopup.style.display = "none"; //hide reset popup
     }
 
     //view button shows view sub menu
     if (event.target.id == "viewMenuButton") {
         let viewSubMenuBar = document.getElementById("viewSubMenuBar");
 
-        if (viewSubMenuBar.style.display == "none"){
+        if (viewSubMenuBar.style.display == "none") {
             viewSubMenuBar.style.display = "block";
         } else {
             viewSubMenuBar.style.display = "none";
@@ -180,7 +205,7 @@ function clickHandler(event) {
         let deletePopup = document.getElementById("deletePopup");
         deletePopup.style.display = "none";
     }
-    
+
 
     //screenshot button takes a screenshot
     if (event.target.id == "screenshotMenuButton") {

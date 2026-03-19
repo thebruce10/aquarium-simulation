@@ -1,12 +1,12 @@
-# Blender 5.0.1 MTL File: 'coral_1_model.blend'
+# Blender 5.0.1 MTL File: 'seaweed_1_model.blend'
 # www.blender.org
 
-newmtl coral_1_mat
+newmtl seaweed_1_mat
 Ns 250.000000
 Ka 1.000000 1.000000 1.000000
+Kd 0.006317 0.040207 0.008152
 Ks 0.500000 0.500000 0.500000
 Ke 0.000000 0.000000 0.000000
 Ni 1.500000
 d 1.000000
 illum 2
-map_Kd coral_1_texture.png
