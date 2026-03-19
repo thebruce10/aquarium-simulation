@@ -47,10 +47,8 @@
 
     
 
-
-
     <div class="popup" id="resetPopup">
-        <span class="popupText">Are you sure you want to delete the selected object?<br>This will remove everything in the scene.</span>
+        <span class="popupText">Are you sure you want to reset?<br>This will remove everything in the scene.</span>
         <button class="popupButton secondary" id="noResetPopupButton">No</button>
         <button class="popupButton primary" id="yesResetPopupButton">Yes</button>
     </div>
@@ -62,9 +60,53 @@
     </div>
 
 
+
+    <div class="toolBar" id="objectToolBar">
+        <div class="toolBarTop">
+            <span class="toolBarText top">Object</span>
+        </div>
+        <div class="toolBarContent">
+            <p class="toolBarText">Name</p>
+            <input type="text" class="toolBarInput large" id="nameObjectToolBarInput" value="Seaweed">
+            <div style="height: 10px;"></div>
+
+            <span class="toolBarText">Location</span>
+
+            <div class="toolBarGrid">
+                <span class="toolBarText small">X</span>
+                <span class="toolBarText small">Y</span>
+                <span class="toolBarText small">Z</span>
+                <input type="number" class="toolBarInput small" id="locationXObjectToolBarInput">
+                <input type="number" class="toolBarInput small" id="locationYObjectToolBarInput">
+                <input type="number" class="toolBarInput small" id="locationZObjectToolBarInput">
+            </div>
+            <div style="height: 10px;"></div>
+
+            <span class="toolBarText">Rotation</span>
+            <div class="toolBarGrid">
+                <span class="toolBarText small">X</span>
+                <span class="toolBarText small">Y</span>
+                <span class="toolBarText small">Z</span>
+                <input type="number" class="toolBarInput small" id="rotationXObjectToolBarInput">
+                <input type="number" class="toolBarInput small" id="rotationYObjectToolBarInput">
+                <input type="number" class="toolBarInput small" id="rotationZObjectToolBarInput">
+            </div>
+
+
+
+            
+            
+            
+            
+        </div>
+    </div>
+
+
+
+
     <div class="bottomBar">
-        <span class="bottomText left"><img src="images/favicon.svg">&nbspAquarium Simulation</span>
-        <!-- <span class="bottomText right"><a href="/"><img src="images/the-dank-web-logo.png"></a></span> -->
+        <span class="bottomBarText left"><img src="images/favicon.svg">&nbspAquarium Simulation</span>
+        <!-- <span class="bottomBarText right"><a href="/"><img src="images/the-dank-web-logo.png"></a></span> -->
     </div>
 
 

@@ -1,3 +1,7 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
 html,body {
     padding: 0px;
     margin: 0px;
@@ -57,6 +61,7 @@ html,body {
     background-color: #000000;
 }
 
+
 .subMenuBar {
     width: 0px;
     display: none;
@@ -107,7 +112,7 @@ html,body {
     border: 1px solid #242438;
 }
 
-.bottomText {
+.bottomBarText {
     font-size: 17px;
     color: #ffffff;
     line-height: 30px;
@@ -116,13 +121,13 @@ html,body {
     display: flex;
     align-items: center;
 }
-.bottomText img {
+.bottomBarText img {
     height: 30px;
 }
-.bottomText.left {
+.bottomBarText.left {
     float: left;
 }
-.bottomText.right {
+.bottomBarText.right {
     float: right;
 }
 
@@ -185,4 +190,80 @@ html,body {
 .popupButton.secondary:active {
     background-color: #000000;
     color: #ffffff;
+}
+
+.toolBar {
+    border-radius: 10px;
+    position: absolute;
+    top: 35px;
+    left: 5px;
+    height: auto;
+    width: 190px;
+    background-color: #12121C;
+    border: 1px solid #242438;
+    display: block;
+}
+
+.toolBarTop {
+    width: 100%;
+}
+
+.toolBarText{
+    margin: 0px;
+    font-size: 17px;
+    color: #ffffff;
+    line-height: 30px;
+    display: flex;
+    align-items: center;
+}
+.toolBarText.large {
+    width: auto;
+}
+.toolBarText.small {
+    width: 100%;
+    padding: 0px;
+}
+.toolBarText.top {
+    padding-left: 10px;
+}
+
+.toolBarTop {
+    border-radius: 10px;
+    border: 1px solid #242438;
+    background-color: #12121C;
+    width: 100%;
+    height: 30px;
+}
+
+.toolBarContent {
+    height: auto;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+}
+
+.toolBarGrid {
+    display: grid;
+    grid-template-columns: 50px 50px 50px;
+    column-gap: 10px;
+}
+
+.toolBarInput {
+    padding-left: 5px;
+    padding-right: 5px;
+    border-radius: 10px;
+    height: 30px;
+    font-size: 17px;
+    border: 1px solid #242438;
+    background-color: #000000;
+    color: #A9A9C7;
+}
+.toolBarInput.small {
+    width: 100%;
+}
+.toolBarInput.large{
+    width: 100%;
+}
+.toolBarInput:focus {
+    outline: 2px solid #A9A9C7;
 }
