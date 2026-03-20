@@ -39,7 +39,7 @@ export function addCoral(scene, x, y, z) {
 
 
             coralPhysicsMesh.position.set(x, y, z);
-            coralPhysicsMesh.name = "Coral1";
+            coralPhysicsMesh.name = "coral";
 
             coralPhysicsMesh.userData.type = "decoration";
 
@@ -49,6 +49,7 @@ export function addCoral(scene, x, y, z) {
         }
     );
 }
+
 
 export function addSeaweed(scene, x, y, z) {
     let loader = new THREE.OBJMTLLoader();
@@ -77,32 +78,20 @@ export function addSeaweed(scene, x, y, z) {
             let seaweedMaterial = new THREE.MeshPhongMaterial(materialProperties);
 
 
-            let seaweedPhysicsMaterial = Physijs.createMaterial(
-                seaweedMaterial,
-                0.4,
-                0
-            );
+            seaweedMesh.material = seaweedMaterial;
 
-            let seaweedPhysicsMesh = new Physijs.ConcaveMesh(
-                seaweedMesh.geometry,
-                seaweedPhysicsMaterial,
-                0
-            );
+            seaweedMesh.position.copy(seaweedModel.position);
+            seaweedMesh.rotation.copy(seaweedModel.rotation);
+            seaweedMesh.scale.copy(seaweedModel.scale);
 
 
+            seaweedMesh.position.set(x, y, z);
+            seaweedMesh.name = "seaweed";
 
-            seaweedPhysicsMesh.position.copy(seaweedModel.position);
-            seaweedPhysicsMesh.rotation.copy(seaweedModel.rotation);
-            seaweedPhysicsMesh.scale.copy(seaweedModel.scale);
-
-
-            seaweedPhysicsMesh.position.set(x, y, z);
-            seaweedPhysicsMesh.name = "Coral1";
-
-            seaweedPhysicsMesh.userData.type = "decoration";
+            seaweedMesh.userData.type = "decoration";
 
 
-            scene.add(seaweedPhysicsMesh);
+            scene.add(seaweedMesh);
 
         }
     );

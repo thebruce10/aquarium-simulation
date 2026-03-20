@@ -60,11 +60,11 @@ function init() {
 
 
     let visualEnvironmentGroup = new THREE.Group();
-    addLighting(visualEnvironmentGroup, tankX, tankY, tankZ);
     addTable(visualEnvironmentGroup, tankX, tankY, tankZ);
     addWater(visualEnvironmentGroup, tankX, tankY, tankZ);
     addTank(visualEnvironmentGroup, tankX, tankY, tankZ);
     addSand(visualEnvironmentGroup, tankX, tankY, tankZ);
+    addLighting(visualEnvironmentGroup, tankX, tankY, tankZ);
     visualEnvironmentGroup.name = "visualEnvironmentGroup";
     scene.add(visualEnvironmentGroup);
 
