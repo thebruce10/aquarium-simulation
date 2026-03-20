@@ -16,7 +16,10 @@ export function addCoral(scene, x, y, z) {
                 }
             );
 
-            
+            coralMesh.geometry.computeVertexNormals()
+            coralMesh.material.flatShading = false;
+            coralMesh.material.side = THREE.DoubleSide;
+            coralMesh.material.shininess = 10;
 
 
             let coralPhysicsMaterial = Physijs.createMaterial(
@@ -68,6 +71,8 @@ export function addSeaweed(scene, x, y, z) {
                     }
                 }
             );
+            seaweedMesh.geometry.computeVertexNormals();
+            seaweedMesh.material.flatShading = false;
 
             let materialProperties = {
                 color: '#2c8802',
