@@ -195,8 +195,6 @@ html,body {
 .toolBar {
     border-radius: 10px;
     position: absolute;
-    top: 35px;
-    left: 5px;
     height: auto;
     width: 190px;
     background-color: #12121C;
@@ -204,8 +202,18 @@ html,body {
     display: block;
 }
 
+#objectToolBar {
+    top: 40px;
+    right: 10px;    
+}
+
 .toolBarTop {
     width: 100%;
+}
+
+#animalsToolBar {
+    bottom: 40px;
+    left: 10px;
 }
 
 .toolBarText{
@@ -215,16 +223,13 @@ html,body {
     line-height: 30px;
     display: flex;
     align-items: center;
-}
-.toolBarText.large {
-    width: auto;
-}
-.toolBarText.small {
     width: 100%;
-    padding: 0px;
 }
 .toolBarText.top {
     padding-left: 10px;
+}
+.toolBarText.light {
+    color: #A9A9C7;
 }
 
 .toolBarTop {
@@ -244,8 +249,19 @@ html,body {
 
 .toolBarGrid {
     display: grid;
+    width: 170px;
+    grid-template-rows: 30px;
+}
+.toolBarGrid.three {
     grid-template-columns: 50px 50px 50px;
     column-gap: 10px;
+}
+.toolBarGrid.slider {
+    grid-template-columns: 30px 140px;
+}
+
+.toolBarSlider {
+    width: 100%;
 }
 
 .toolBarInput {
@@ -262,7 +278,7 @@ html,body {
     width: 100%;
 }
 .toolBarInput.large{
-    width: 100%;
+    width: 170px;
 }
 .toolBarInput:focus {
     outline: 2px solid #A9A9C7;

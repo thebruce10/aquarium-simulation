@@ -1,4 +1,4 @@
-export function addCoral(scene, tankY) {
+export function addCoral(scene, x, y, z) {
     let loader = new THREE.OBJMTLLoader();
 
     loader.load(
@@ -38,7 +38,7 @@ export function addCoral(scene, tankY) {
             coralPhysicsMesh.scale.copy(coralModel.scale);
 
 
-            coralPhysicsMesh.position.y = -tankY/2;
+            coralPhysicsMesh.position.set(x, y, z);
             coralPhysicsMesh.name = "Coral1";
 
             coralPhysicsMesh.userData.type = "decoration";
@@ -50,7 +50,7 @@ export function addCoral(scene, tankY) {
     );
 }
 
-export function addSeaweed(scene, tankY) {
+export function addSeaweed(scene, x, y, z) {
     let loader = new THREE.OBJMTLLoader();
 
     loader.load(
@@ -96,7 +96,7 @@ export function addSeaweed(scene, tankY) {
             seaweedPhysicsMesh.scale.copy(seaweedModel.scale);
 
 
-            seaweedPhysicsMesh.position.y = -tankY/2;
+            seaweedPhysicsMesh.position.set(x, y, z);
             seaweedPhysicsMesh.name = "Coral1";
 
             seaweedPhysicsMesh.userData.type = "decoration";

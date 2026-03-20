@@ -1,6 +1,6 @@
 import { addLighting, addTable, addWater, addTank, addSand } from "./visualEnvironment.mjs";
 import { addBoundaries } from "./boundaries.mjs";
-import { addNeonTetra } from "./fish.mjs";
+import { addNeonTetra, addGoldfish } from "./fish.mjs";
 import { moveFish } from "./fishMovement.mjs";
 import { addAxes } from "./tools.mjs";
 import { addCoral } from "./decorations.mjs";
@@ -70,12 +70,19 @@ function init() {
 
     addBoundaries(scene, tankX, tankY, tankZ);
 
-    for (let i = 0; i < 100; i++) {
+    for (let i = 0; i < 10; i++) {
         addNeonTetra(scene);
     }
-    // addNeonTetra(scene);
-    // addCoral(scene, tankY);
-    addSeaweed(scene, tankY);
+    for (let i = 0; i < 3; i++) {
+        addGoldfish(scene);
+    }
+
+    addCoral(scene, 25, -tankY/2, 0);
+    addCoral(scene, -10, -tankY/2, 10);
+    addSeaweed(scene, -25, -tankY/2, 0);
+    addSeaweed(scene, 20, -tankY/2, 15);
+    addSeaweed(scene, 5, -tankY/2, -5);
+    addSeaweed(scene, -10, -tankY/2, -10);
 
     counter = 0;
     render();
@@ -87,11 +94,11 @@ function init() {
 function render() {
     renderer.render(scene, camera);
 
-    camControls.update()
+    camControls.update();
 
 
-    scene.simulate();
     moveFish(scene, counter, tankX, tankY, tankZ);
+    scene.simulate();
 
     
     requestAnimationFrame(render);

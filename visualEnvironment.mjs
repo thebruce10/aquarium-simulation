@@ -7,7 +7,6 @@ export function addLighting(group, tankX, tankY, tankZ){
     let spotlight1 = new THREE.SpotLight(lightColor, lightIntensity);
     spotlight1.position.set(tankX/2 + 100, tankY/2 + 100, tankZ/2 + 100);
     spotlight1.castShadow = true;
-    spotlight1.color.set();
     lightingGroup.add(spotlight1);
 
     //negative x, positive z
@@ -47,6 +46,7 @@ export function addTable(group, tankX, tankY, tankZ) {
 
     let tableMesh = new THREE.Mesh(tableGeometry, tableMaterial);
     tableMesh.receiveShadow = true;
+    tableMesh.castShadow = true;
     tableMesh.position.y = (0 - tankY/2) - 6; // 1 is sand layer and 5 is 1/2 of table
 
     group.add(tableMesh);
@@ -114,6 +114,8 @@ export function addTank(group, tankX, tankY, tankZ) {
     let backWallmaterial = new THREE.MeshPhongMaterial(backWallMaterialProperties)
     let backWallGeometry = new THREE.BoxGeometry(tankX + 2, tankY + 11, 0.5);
     let backWallMesh = new THREE.Mesh(backWallGeometry, backWallmaterial);
+    backWallMesh.castShadow = true;
+    backWallMesh.receiveShadow = true;
     backWallMesh.position.set(0, 4.5, 0 - (tankZ/2 + 0.75));
     tankGroup.add(backWallMesh);
 
@@ -131,6 +133,7 @@ export function addTank(group, tankX, tankY, tankZ) {
     backdropMaterial.map.repeat.set(1,1);
     let backdropGeometry = new THREE.BoxGeometry(tankX + 2, tankY + 1, 0.5);
     let backdropMesh = new THREE.Mesh(backdropGeometry, backdropMaterial);
+    backdropMesh.receiveShadow = true;
     backdropMesh.position.set(0, -0.5, 0 - (tankZ/2 + 0.25));
     tankGroup.add(backdropMesh);
 
