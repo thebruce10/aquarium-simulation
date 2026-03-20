@@ -14,6 +14,8 @@ export function addNeonTetra(scene) {
                 }
             );
 
+            neonTetraMesh.geometry.computeVertexNormals();
+            neonTetraMesh.material.flatShading = false;
             neonTetraMesh.material.side = THREE.DoubleSide;
             neonTetraMesh.material.shininess = 15;
 
@@ -81,7 +83,8 @@ export function addGoldfish(scene) {
                     }
                 }
             );
-
+            goldfishMesh.geometry.computeVertexNormals();
+            goldfishMesh.material.flatShading = false;
             goldfishMesh.material.side = THREE.DoubleSide;
             goldfishMesh.material.shininess = 15;
 
@@ -108,7 +111,7 @@ export function addGoldfish(scene) {
             goldfishPhysicsMesh.userData.speed = 1;
 
             goldfishPhysicsMesh.userData.type = "fish";
-            neonTetraPhysicsMesh.userData.fish = "goldfish";
+            goldfishPhysicsMesh.userData.fish = "goldfish";
             goldfishPhysicsMesh.userData.velocity = 0;
             goldfishPhysicsMesh.userData.endMovement = 0;
             goldfishPhysicsMesh.userData.endRest = 0;
