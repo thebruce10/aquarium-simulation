@@ -40,6 +40,7 @@ export function addNeonTetra(scene) {
             neonTetraPhysicsMesh.userData.speed = 1;
 
             neonTetraPhysicsMesh.userData.type = "fish";
+            neonTetraPhysicsMesh.userData.fish = "neonTetra";
             neonTetraPhysicsMesh.userData.velocity = 0;
             neonTetraPhysicsMesh.userData.endMovement = 0;
             neonTetraPhysicsMesh.userData.endRest = 0;
@@ -107,6 +108,7 @@ export function addGoldfish(scene) {
             goldfishPhysicsMesh.userData.speed = 1;
 
             goldfishPhysicsMesh.userData.type = "fish";
+            neonTetraPhysicsMesh.userData.fish = "goldfish";
             goldfishPhysicsMesh.userData.velocity = 0;
             goldfishPhysicsMesh.userData.endMovement = 0;
             goldfishPhysicsMesh.userData.endRest = 0;
