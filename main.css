@@ -192,6 +192,16 @@ html,body {
     color: #ffffff;
 }
 
+
+.editor {
+    height: calc(100vh - 60px);
+    width: 100vw;
+    position: absolute;
+    align-self: center;
+    pointer-events: none;
+}
+
+
 .toolBar {
     border-radius: 10px;
     position: absolute;
@@ -200,20 +210,21 @@ html,body {
     background-color: #12121C;
     border: 1px solid #242438;
     display: block;
+    pointer-events: auto;
 }
 
 #objectToolBar {
-    top: 40px;
+    top: 10px;
     right: 10px;    
+}
+
+#animalsToolBar {
+    bottom: 10px;
+    left: 10px;
 }
 
 .toolBarTop {
     width: 100%;
-}
-
-#animalsToolBar {
-    bottom: 40px;
-    left: 10px;
 }
 
 .toolBarText{
@@ -250,18 +261,26 @@ html,body {
 .toolBarGrid {
     display: grid;
     width: 200px;
-    grid-template-rows: 30px;
-    column-gap: 10px;
 }
 .toolBarGrid.three {
     grid-template-columns: 60px 60px 60px;
+    column-gap: 10px;
 }
 .toolBarGrid.slider {
     grid-template-columns: 60px 130px;
+    column-gap: 10px;
+}
+.toolBarGrid.tiles {
+    grid-template-columns: 90px 90px;
+    width: auto;
+    height: 180px;
+    grid-auto-rows: 90px;
+    overflow: auto;
 }
 
 .toolBarSlider {
     width: 100%;
+    accent-color: #7171FF;
 }
 
 .toolBarInput {
@@ -282,4 +301,20 @@ html,body {
 }
 .toolBarInput:focus {
     outline: 2px solid #A9A9C7;
+}
+
+.tileToolBarButton {
+    padding-left: 5px;
+    padding-right: 5px;
+    border-radius: 10px;
+    width: 100%;
+    height: 100%;
+    border: 1px solid #242438;
+    background-color: #000000;
+}
+
+.tileToolBarButtonImage {
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
 }

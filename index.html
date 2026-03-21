@@ -13,6 +13,8 @@
     <script src="libs/OrbitControls.js"></script>
     <script src="libs/MTLLoader.js"></script>
     <script src="libs/OBJMTLLoader.js"></script>
+    <script src="libs/TransformControls.js"></script>
+    <script src="libs/Projector.js"></script>
 
     <link href="main.css" rel="stylesheet">
     
@@ -45,7 +47,84 @@
         
     </div>
 
-    
+
+
+
+    <div class="editor" id="editor">
+
+        <div class="toolBar" id="objectToolBar">
+            <div class="toolBarTop">
+                <span class="toolBarText top">Object</span>
+            </div>
+            <div class="toolBarContent">
+                <span class="toolBarText">Name</span>
+                <input type="text" class="toolBarInput large" id="nameObjectToolBarInput" value="" disabled>
+                <div style="height: 10px;"></div>
+
+                <span class="toolBarText">Location</span>
+                <div class="toolBarGrid three">
+                    <span class="toolBarText">X</span>
+                    <span class="toolBarText">Y</span>
+                    <span class="toolBarText">Z</span>
+                    <input type="number" class="toolBarInput" id="locationXObjectToolBarInput" min="0" max="0" value="" disabled>
+                    <input type="number" class="toolBarInput" id="locationYObjectToolBarInput" min="0" max="0" value="" disabled>
+                    <input type="number" class="toolBarInput" id="locationZObjectToolBarInput" min="0" max="0" value="" disabled>
+                </div>
+                <div style="height: 10px;"></div>
+
+                <span class="toolBarText">Rotation</span>
+                <div class="toolBarGrid three">
+                    <span class="toolBarText">X</span>
+                    <span class="toolBarText">Y</span>
+                    <span class="toolBarText">Z</span>
+                    <input type="number" class="toolBarInput" id="rotationXObjectToolBarInput" min="-360" max="360" value="" disabled>
+                    <input type="number" class="toolBarInput" id="rotationYObjectToolBarInput" min="-360" max="360" value="" disabled>
+                    <input type="number" class="toolBarInput" id="rotationZObjectToolBarInput" min="-360" max="360" value="" disabled>
+                </div>
+            </div>
+        </div>
+
+        <div class="toolBar" id="animalsToolBar">
+            <div class="toolBarTop">
+                <span class="toolBarText top">Animals</span>
+            </div>
+            <div class="toolBarContent">
+            
+                <span class="toolBarText">Neon Tetras</span>
+                <div class="toolBarGrid slider">
+                    <input type="number" class="toolBarInput" id="neonTetraAnimalsToolBarInput" min="0" max="100" value="10">
+                    <input type="range" class="toolBarSlider" id="neonTetraAnimalsToolBarSlider" min="0" max="100" step="1" value="10">
+                </div>
+                <div style="height: 10px;"></div>
+            
+                <span class="toolBarText">Goldfish</span>
+                <div class="toolBarGrid slider">
+                    <input type="number" class="toolBarInput" id="goldfishAnimalsToolBarInput" min="0" max="100" value="3">
+                    <input type="range" class="toolBarSlider" id="goldfishAnimalsToolBarSlider" min="0" max="100" step="1" value="3">
+                </div>
+            
+                
+            </div>
+        </div>
+
+        <div class="toolBar" id="decorationsToolBar">
+            <div class="toolBarTop">
+                <span class="toolBarText top">Decorations</span>
+            </div>
+            <div class="toolBarContent">
+                <div class="toolBarGrid tiles">
+                    <button class="tileToolBarButton" id="coralDecorationsToolBarButton"><img src="images/coral_icon.png" class="tileToolBarButtonImage"></button>
+                    <button class="tileToolBarButton" id="seaweedDecorationsToolBarButton"><img src="images/seaweed_icon.png" class="tileToolBarButtonImage"></button>
+                    <button class="tileToolBarButton"></button>
+                    <button class="tileToolBarButton"></button>
+                    <button class="tileToolBarButton"></button>
+                </div>            
+                
+            </div>
+        </div>
+
+    </div>
+
 
     <div class="popup" id="resetPopup">
         <span class="popupText">Are you sure you want to reset?<br>This will remove everything in the scene.</span>
@@ -59,67 +138,10 @@
         <button class="popupButton primary" id="yesDeletePopupButton">Yes</button>
     </div>
 
-
-
-    <div class="toolBar" id="objectToolBar">
-        <div class="toolBarTop">
-            <span class="toolBarText top">Object</span>
-        </div>
-        <div class="toolBarContent">
-            <span class="toolBarText">Name</span>
-            <input type="text" class="toolBarInput large" id="nameObjectToolBarInput" value="Seaweed">
-            <div style="height: 10px;"></div>
-
-            <span class="toolBarText">Location</span>
-
-            <div class="toolBarGrid three">
-                <span class="toolBarText">X</span>
-                <span class="toolBarText">Y</span>
-                <span class="toolBarText">Z</span>
-                <input type="number" class="toolBarInput" id="locationXObjectToolBarInput">
-                <input type="number" class="toolBarInput" id="locationYObjectToolBarInput">
-                <input type="number" class="toolBarInput" id="locationZObjectToolBarInput">
-            </div>
-            <div style="height: 10px;"></div>
-
-            <span class="toolBarText">Rotation</span>
-            <div class="toolBarGrid three">
-                <span class="toolBarText">X</span>
-                <span class="toolBarText">Y</span>
-                <span class="toolBarText">Z</span>
-                <input type="number" class="toolBarInput" id="rotationXObjectToolBarInput">
-                <input type="number" class="toolBarInput" id="rotationYObjectToolBarInput">
-                <input type="number" class="toolBarInput" id="rotationZObjectToolBarInput">
-            </div>
-            
-            
-        </div>
-    </div>
+      
 
 
 
-    <div class="toolBar" id="animalsToolBar">
-        <div class="toolBarTop">
-            <span class="toolBarText top">Animals</span>
-        </div>
-        <div class="toolBarContent">
-
-            <span class="toolBarText">Neon Tetra</span>
-            <div class="toolBarGrid slider">
-                <input type="number" class="toolBarInput" id="neonTetraAnimalsToolBarInput" value="10">
-                <input type="range" class="toolBarSlider" id="neonTetraAnimalsToolBarSlider" min="0" max="100" step="1" value="10">
-            </div>
-            <div style="height: 10px;"></div>
-
-            <span class="toolBarText">Goldfish</span>
-            <div class="toolBarGrid slider">
-                <input type="number" class="toolBarInput" id="goldfishAnimalsToolBarInput" value="3">
-                <input type="range" class="toolBarSlider" id="goldfishAnimalsToolBarSlider" min="0" max="100" step="1" value="3">
-            </div>
-
-            
-        </div>
-    </div>
 
 
 

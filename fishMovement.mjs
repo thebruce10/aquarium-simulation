@@ -1,13 +1,44 @@
+import { addGoldfish, addNeonTetra } from "./fish.mjs";
+
 const maxRoll = Math.PI/180 *15;
 const maxPitch = Math.PI/180 *30;
 const linearDragFactor = 0.98;
 const angularDragFactor = 0.98;
 
-export function moveFish(scene, counter, tankX, tankY, tankZ) {
+export function moveFish(scene, counter, tankX, tankY, tankZ, neonTetraAmount, goldfishAmount) {
+
+    let neonTetraCount = 0;
+    let goldfishCount = 0;
+    let fishToRemove = [];
+
+
 
     scene.traverse(
         function (child) {
             if (child.userData.type == "fish") {
+
+                // add to count
+                switch (child.userData.fish) {
+                    case "neonTetra":
+                        neonTetraCount++;
+
+                        if (neonTetraCount > neonTetraAmount) {
+                            fishToRemove.push(child);
+                        }
+                        break;
+
+                    case "goldfish":
+                        goldfishCount++;
+
+                        if (goldfishCount > goldfishAmount) {
+                            fishToRemove.push(child);
+                        }
+                        break;
+                }
+
+                
+
+                
 
                 if (counter < child.userData.endRest) {
                     move(child, counter, tankX, tankY, tankZ);
@@ -19,6 +50,20 @@ export function moveFish(scene, counter, tankX, tankY, tankZ) {
             }
         }
     );
+
+
+    for (let i = 0; i < fishToRemove.length; i++) {
+        scene.remove(fishToRemove[i]);
+    }
+
+
+    if (neonTetraCount < neonTetraAmount) {
+        addNeonTetra(scene);
+    }
+
+    if (goldfishCount < goldfishAmount) {
+        addGoldfish(scene);
+    }
 
 }
 

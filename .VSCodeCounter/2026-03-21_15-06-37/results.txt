@@ -1,0 +1,70 @@
+Date : 2026-03-21 15:06:37
+Directory : c:\Users\Leinad\OneDrive - Department of Education\Documents\0 School\2026\Term 1\Digital Solutions\Final\aquarium-simulation
+Total : 38 files,  27503 codes, 3524 comments, 17778 blanks, all 48805 lines
+
+Languages
++------------+------------+------------+------------+------------+------------+
+| language   | files      | code       | comment    | blank      | total      |
++------------+------------+------------+------------+------------+------------+
+| JavaScript |         35 |     27,101 |      3,522 |     17,708 |     48,331 |
+| PostCSS    |          1 |        266 |          0 |         31 |        297 |
+| HTML       |          1 |        116 |          1 |         38 |        155 |
+| XML        |          1 |         20 |          1 |          1 |         22 |
++------------+------------+------------+------------+------------+------------+
+
+Directories
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                                                                                                                 | files      | code       | comment    | blank      | total      |
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                                                                                                    |         38 |     27,503 |      3,524 |     17,778 |     48,805 |
+| . (Files)                                                                                                                                                            |          9 |      1,275 |         56 |        376 |      1,707 |
+| images                                                                                                                                                               |          1 |         20 |          1 |          1 |         22 |
+| libs                                                                                                                                                                 |         28 |     26,208 |      3,467 |     17,401 |     47,076 |
+| libs (Files)                                                                                                                                                         |         21 |     25,947 |      3,435 |     17,183 |     46,565 |
+| libs\postprocessing                                                                                                                                                  |          7 |        261 |         32 |        218 |        511 |
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| filename                                                                                                                                                             | language   | code       | comment    | blank      | total      |
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| c:\Users\Leinad\OneDrive - Department of Education\Documents\0 School\2026\Term 1\Digital Solutions\Final\aquarium-simulation\boundaries.mjs                         | JavaScript |         53 |          6 |          8 |         67 |
+| c:\Users\Leinad\OneDrive - Department of Education\Documents\0 School\2026\Term 1\Digital Solutions\Final\aquarium-simulation\decorations.mjs                        | JavaScript |         71 |          0 |         35 |        106 |
+| c:\Users\Leinad\OneDrive - Department of Education\Documents\0 School\2026\Term 1\Digital Solutions\Final\aquarium-simulation\fish.mjs                               | JavaScript |        102 |          2 |         32 |        136 |
+| c:\Users\Leinad\OneDrive - Department of Education\Documents\0 School\2026\Term 1\Digital Solutions\Final\aquarium-simulation\fishMovement.mjs                       | JavaScript |         88 |          3 |         38 |        129 |
+| c:\Users\Leinad\OneDrive - Department of Education\Documents\0 School\2026\Term 1\Digital Solutions\Final\aquarium-simulation\images\favicon.svg                     | XML        |         20 |          1 |          1 |         22 |
+| c:\Users\Leinad\OneDrive - Department of Education\Documents\0 School\2026\Term 1\Digital Solutions\Final\aquarium-simulation\index.html                             | HTML       |        116 |          1 |         38 |        155 |
+| c:\Users\Leinad\OneDrive - Department of Education\Documents\0 School\2026\Term 1\Digital Solutions\Final\aquarium-simulation\libs\CCapture.min.js                   | JavaScript |          2 |          0 |          1 |          3 |
+| c:\Users\Leinad\OneDrive - Department of Education\Documents\0 School\2026\Term 1\Digital Solutions\Final\aquarium-simulation\libs\CSS3DRenderer.js                  | JavaScript |        140 |          6 |         78 |        224 |
+| c:\Users\Leinad\OneDrive - Department of Education\Documents\0 School\2026\Term 1\Digital Solutions\Final\aquarium-simulation\libs\CanvasRenderer.js                 | JavaScript |        638 |         42 |        423 |      1,103 |
+| c:\Users\Leinad\OneDrive - Department of Education\Documents\0 School\2026\Term 1\Digital Solutions\Final\aquarium-simulation\libs\MTLLoader.js                      | JavaScript |        208 |         45 |        175 |        428 |
+| c:\Users\Leinad\OneDrive - Department of Education\Documents\0 School\2026\Term 1\Digital Solutions\Final\aquarium-simulation\libs\OBJLoader.js                      | JavaScript |        172 |         24 |        134 |        330 |
+| c:\Users\Leinad\OneDrive - Department of Education\Documents\0 School\2026\Term 1\Digital Solutions\Final\aquarium-simulation\libs\OBJMTLLoader.js                   | JavaScript |        187 |         33 |        142 |        362 |
+| c:\Users\Leinad\OneDrive - Department of Education\Documents\0 School\2026\Term 1\Digital Solutions\Final\aquarium-simulation\libs\OrbitControls.js                  | JavaScript |        305 |         66 |        212 |        583 |
+| c:\Users\Leinad\OneDrive - Department of Education\Documents\0 School\2026\Term 1\Digital Solutions\Final\aquarium-simulation\libs\Projector.js                      | JavaScript |        520 |         31 |        384 |        935 |
+| c:\Users\Leinad\OneDrive - Department of Education\Documents\0 School\2026\Term 1\Digital Solutions\Final\aquarium-simulation\libs\TrackballControls.js              | JavaScript |        318 |          9 |        241 |        568 |
+| c:\Users\Leinad\OneDrive - Department of Education\Documents\0 School\2026\Term 1\Digital Solutions\Final\aquarium-simulation\libs\TransformControls.js              | JavaScript |        674 |          9 |        311 |        994 |
+| c:\Users\Leinad\OneDrive - Department of Education\Documents\0 School\2026\Term 1\Digital Solutions\Final\aquarium-simulation\libs\Whammy.js                         | JavaScript |        334 |         42 |         42 |        418 |
+| c:\Users\Leinad\OneDrive - Department of Education\Documents\0 School\2026\Term 1\Digital Solutions\Final\aquarium-simulation\libs\ammo.js                           | JavaScript |          1 |          0 |          1 |          2 |
+| c:\Users\Leinad\OneDrive - Department of Education\Documents\0 School\2026\Term 1\Digital Solutions\Final\aquarium-simulation\libs\chroma.min.js                     | JavaScript |         15 |         32 |          4 |         51 |
+| c:\Users\Leinad\OneDrive - Department of Education\Documents\0 School\2026\Term 1\Digital Solutions\Final\aquarium-simulation\libs\clock.js                          | JavaScript |        219 |         29 |         46 |        294 |
+| c:\Users\Leinad\OneDrive - Department of Education\Documents\0 School\2026\Term 1\Digital Solutions\Final\aquarium-simulation\libs\dat.gui.min.js                    | JavaScript |         82 |          0 |          0 |         82 |
+| c:\Users\Leinad\OneDrive - Department of Education\Documents\0 School\2026\Term 1\Digital Solutions\Final\aquarium-simulation\libs\physi.js                          | JavaScript |      1,087 |         69 |        241 |      1,397 |
+| c:\Users\Leinad\OneDrive - Department of Education\Documents\0 School\2026\Term 1\Digital Solutions\Final\aquarium-simulation\libs\physijs_worker.js                 | JavaScript |      1,093 |         34 |        277 |      1,404 |
+| c:\Users\Leinad\OneDrive - Department of Education\Documents\0 School\2026\Term 1\Digital Solutions\Final\aquarium-simulation\libs\postprocessing\CopyShader.js      | JavaScript |         22 |          5 |         20 |         47 |
+| c:\Users\Leinad\OneDrive - Department of Education\Documents\0 School\2026\Term 1\Digital Solutions\Final\aquarium-simulation\libs\postprocessing\DotScreenPass.js   | JavaScript |         33 |          3 |         25 |         61 |
+| c:\Users\Leinad\OneDrive - Department of Education\Documents\0 School\2026\Term 1\Digital Solutions\Final\aquarium-simulation\libs\postprocessing\DotScreenShader.js | JavaScript |         35 |          7 |         27 |         69 |
+| c:\Users\Leinad\OneDrive - Department of Education\Documents\0 School\2026\Term 1\Digital Solutions\Final\aquarium-simulation\libs\postprocessing\EffectComposer.js  | JavaScript |         72 |          3 |         61 |        136 |
+| c:\Users\Leinad\OneDrive - Department of Education\Documents\0 School\2026\Term 1\Digital Solutions\Final\aquarium-simulation\libs\postprocessing\MaskPass.js        | JavaScript |         42 |          8 |         37 |         87 |
+| c:\Users\Leinad\OneDrive - Department of Education\Documents\0 School\2026\Term 1\Digital Solutions\Final\aquarium-simulation\libs\postprocessing\RenderPass.js      | JavaScript |         27 |          3 |         22 |         52 |
+| c:\Users\Leinad\OneDrive - Department of Education\Documents\0 School\2026\Term 1\Digital Solutions\Final\aquarium-simulation\libs\postprocessing\ShaderPass.js      | JavaScript |         30 |          3 |         26 |         59 |
+| c:\Users\Leinad\OneDrive - Department of Education\Documents\0 School\2026\Term 1\Digital Solutions\Final\aquarium-simulation\libs\q.js                              | JavaScript |      1,128 |        568 |        212 |      1,908 |
+| c:\Users\Leinad\OneDrive - Department of Education\Documents\0 School\2026\Term 1\Digital Solutions\Final\aquarium-simulation\libs\stats.min.js                      | JavaScript |          5 |          1 |          0 |          6 |
+| c:\Users\Leinad\OneDrive - Department of Education\Documents\0 School\2026\Term 1\Digital Solutions\Final\aquarium-simulation\libs\three.js                          | JavaScript |     18,415 |      2,375 |     13,941 |     34,731 |
+| c:\Users\Leinad\OneDrive - Department of Education\Documents\0 School\2026\Term 1\Digital Solutions\Final\aquarium-simulation\libs\tween.js                          | JavaScript |        404 |         20 |        318 |        742 |
+| c:\Users\Leinad\OneDrive - Department of Education\Documents\0 School\2026\Term 1\Digital Solutions\Final\aquarium-simulation\main.css                               | PostCSS    |        266 |          0 |         31 |        297 |
+| c:\Users\Leinad\OneDrive - Department of Education\Documents\0 School\2026\Term 1\Digital Solutions\Final\aquarium-simulation\main.js                                | JavaScript |        411 |         33 |        149 |        593 |
+| c:\Users\Leinad\OneDrive - Department of Education\Documents\0 School\2026\Term 1\Digital Solutions\Final\aquarium-simulation\tools.mjs                              | JavaScript |         57 |          0 |          8 |         65 |
+| c:\Users\Leinad\OneDrive - Department of Education\Documents\0 School\2026\Term 1\Digital Solutions\Final\aquarium-simulation\visualEnvironment.mjs                  | JavaScript |        111 |         11 |         37 |        159 |
+| Total                                                                                                                                                                |            |     27,503 |      3,524 |     17,778 |     48,805 |
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
