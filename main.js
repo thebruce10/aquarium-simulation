@@ -21,6 +21,9 @@ let counter;
 let neonTetraAmount;
 let goldfishAmount;
 let editorVisible = true;
+let objectToolBarHidden = false;
+let animalsToolBarHidden = false;
+let decorationsToolBarHidden = false;
 
 function init() {
 
@@ -95,15 +98,18 @@ function init() {
 
     objectToolBar.style.left = editor.offsetWidth - objectToolBar.offsetWidth - 10 + "px";
     objectToolBar.style.top = 10 + "px";
-    dragElement(objectToolBar);
+    document.getElementById("objectToolBarContent").style.display = "block";
+    dragElement(objectToolBar, editor);
 
     animalsToolBar.style.left = 10 + "px";
     animalsToolBar.style.top = editor.offsetHeight - animalsToolBar.offsetHeight - 10 + "px";
-    dragElement(animalsToolBar);
+    document.getElementById("animalsToolBarContent").style.display = "block";
+    dragElement(animalsToolBar, editor);
 
     decorationsToolBar.style.left = editor.offsetWidth - decorationsToolBar.offsetWidth - 10 + "px";
     decorationsToolBar.style.top = editor.offsetHeight - decorationsToolBar.offsetHeight - 10 + "px";
-    dragElement(decorationsToolBar);
+    document.getElementById("decorationsToolBarContent").style.display = "block";
+    dragElement(decorationsToolBar, editor);
 
 
 
@@ -272,6 +278,45 @@ function clickHandler(event) {
         addSeaweed(scene, 0, -tankY/2, 0);
     }
 
+    if (event.target.id == "objectToolBarTopButton") {
+        let content = document.getElementById("objectToolBarContent");
+        let button = document.getElementById("objectToolBarTopButton");
+        if (content.style.display == "block") {
+            button.innerHTML = "&#9650";
+            content.style.display = "none";
+            
+        } else {
+            button.innerHTML = "&#9660";
+            content.style.display = "block";
+        }
+    }
+
+    if (event.target.id == "animalsToolBarTopButton") {
+        let content = document.getElementById("animalsToolBarContent");
+        let button = document.getElementById("animalsToolBarTopButton");
+        if (content.style.display == "block") {
+            button.innerHTML = "&#9650";
+            content.style.display = "none";
+            
+        } else {
+            button.innerHTML = "&#9660";
+            content.style.display = "block";
+        }
+    }
+
+    if (event.target.id == "decorationsToolBarTopButton") {
+        let content = document.getElementById("decorationsToolBarContent");
+        let button = document.getElementById("decorationsToolBarTopButton");
+        if (content.style.display == "block") {
+            button.innerHTML = "&#9650";
+            content.style.display = "none";
+            
+        } else {
+            button.innerHTML = "&#9660";
+            content.style.display = "block";
+        }
+    }
+
 }
 
 
@@ -364,6 +409,8 @@ function neonTetraAnimalsToolBarInputChange(event) {
     let input = event.srcElement;
     let slider = document.getElementById("neonTetraAnimalsToolBarSlider");
     
+    input.value = clamp(input.value, input.min, input.max);
+
     neonTetraAmount = input.value;
     slider.value = input.value;
 }
@@ -379,6 +426,8 @@ function goldfishAnimalsToolBarSliderChange(event) {
 function goldfishAnimalsToolBarInputChange(event) {
     let input = event.srcElement;
     let slider = document.getElementById("goldfishAnimalsToolBarSlider");
+
+    input.value = clamp(input.value, input.min, input.max);
     
     goldfishAmount = input.value;
     slider.value = input.value;
@@ -593,11 +642,16 @@ function disableObjectToolBar() {
     rotZ.disabled = true;
 }
 
-function dragElement(element) {
-    var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
-    if (document.getElementById(element.id + "top")) {
+function dragElement(element, area) {
+    //code from https://www.w3schools.com/howto/howto_js_draggable.asp
+
+    let pos1;
+    let pos2;
+    let pos3;
+    let pos4;
+    if (document.getElementById(element.id + "Top")) {
         // if present, the header is where you move the DIV from:
-        document.getElementById(element.id + "top").onmousedown = dragMouseDown;
+        document.getElementById(element.id + "Top").onmousedown = dragMouseDown;
     } else {
         // otherwise, move the DIV from anywhere inside the DIV:
         element.onmousedown = dragMouseDown;
@@ -623,8 +677,10 @@ function dragElement(element) {
         pos3 = event.clientX;
         pos4 = event.clientY;
         // set the element's new position:
-        element.style.top = (element.offsetTop - pos2) + "px";
-        element.style.left = (element.offsetLeft - pos1) + "px";
+        let newPositionY = (element.offsetTop - pos2);
+        let newPositionX = (element.offsetLeft - pos1);
+        element.style.top = clamp(newPositionY, 0, area.offsetHeight - element.offsetHeight) + "px";
+        element.style.left = clamp(newPositionX, 0, area.offsetWidth - element.offsetWidth) + "px";
     }
 
     function closeDragElement() {
