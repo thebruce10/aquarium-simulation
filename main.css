@@ -205,7 +205,7 @@ html,body {
 .toolBar {
     border-radius: 10px;
     position: absolute;
-    height: auto;
+    height: fit-content;
     width: 220px;
     background-color: #12121C;
     border: 1px solid #242438;
@@ -221,6 +221,11 @@ html,body {
 #animalsToolBar {
     bottom: 10px;
     left: 10px;
+}
+
+#decorationsToolBar {
+    bottom: 10px;
+    right: 10px;
 }
 
 .toolBarTop {

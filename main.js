@@ -88,6 +88,23 @@ function init() {
 
     refreshAnimalsToolBar();
 
+    let editor = document.getElementById("editor")
+    let objectToolBar = document.getElementById("objectToolBar");
+    let animalsToolBar = document.getElementById("animalsToolBar");
+    let decorationsToolBar = document.getElementById("decorationsToolBar");
+
+    objectToolBar.style.left = editor.offsetWidth - objectToolBar.offsetWidth - 10 + "px";
+    objectToolBar.style.top = 10 + "px";
+    dragElement(objectToolBar);
+
+    animalsToolBar.style.left = 10 + "px";
+    animalsToolBar.style.top = editor.offsetHeight - animalsToolBar.offsetHeight - 10 + "px";
+    dragElement(animalsToolBar);
+
+    decorationsToolBar.style.left = editor.offsetWidth - decorationsToolBar.offsetWidth - 10 + "px";
+    decorationsToolBar.style.top = editor.offsetHeight - decorationsToolBar.offsetHeight - 10 + "px";
+    dragElement(decorationsToolBar);
+
 
 
     addCoral(scene, 25, -tankY/2, 0);
@@ -574,6 +591,47 @@ function disableObjectToolBar() {
     rotX.disabled = true;
     rotY.disabled = true;
     rotZ.disabled = true;
+}
+
+function dragElement(element) {
+    var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+    if (document.getElementById(element.id + "top")) {
+        // if present, the header is where you move the DIV from:
+        document.getElementById(element.id + "top").onmousedown = dragMouseDown;
+    } else {
+        // otherwise, move the DIV from anywhere inside the DIV:
+        element.onmousedown = dragMouseDown;
+    }
+
+    function dragMouseDown(event) {
+        event = event || window.event;
+        event.preventDefault();
+        // get the mouse cursor position at startup:
+        pos3 = event.clientX;
+        pos4 = event.clientY;
+        document.onmouseup = closeDragElement;
+        // call a function whenever the cursor moves:
+        document.onmousemove = elementDrag;
+    }
+
+    function elementDrag(event) {
+        event = event || window.event;
+        event.preventDefault();
+        // calculate the new cursor position:
+        pos1 = pos3 - event.clientX;
+        pos2 = pos4 - event.clientY;
+        pos3 = event.clientX;
+        pos4 = event.clientY;
+        // set the element's new position:
+        element.style.top = (element.offsetTop - pos2) + "px";
+        element.style.left = (element.offsetLeft - pos1) + "px";
+    }
+
+    function closeDragElement() {
+        // stop moving when mouse button is released:
+        document.onmouseup = null;
+        document.onmousemove = null;
+    }
 }
 
 
