@@ -99,7 +99,7 @@ function init() {
     let decorationsToolBar = document.getElementById("decorationsToolBar");
 
     document.getElementById("objectToolBarContent").style.display = "block";
-    document.getElementById("objectsToolBarTopButton").innerHTML = "&#9660";
+    document.getElementById("objectToolBarTopButton").innerHTML = "&#9660";
     objectToolBar.style.left = editor.offsetWidth - objectToolBar.offsetWidth - 10 + "px";
     objectToolBar.style.top = 10 + "px";
     dragElement(objectToolBar, editor);
