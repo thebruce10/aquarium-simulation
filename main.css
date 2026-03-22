@@ -195,9 +195,9 @@ html,body {
 
 .editor {
     height: calc(100vh - 60px);
-    width: 100vw;
+    width: 100%;
     position: absolute;
-    align-self: center;
+    top: 30px;
     pointer-events: none;
 }
 

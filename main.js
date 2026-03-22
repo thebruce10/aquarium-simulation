@@ -1,8 +1,10 @@
+//the things I tried for transformControls are in selectObject() and deselectObject()
+
+
 import { addLighting, addTable, addWater, addTank, addSand } from "./visualEnvironment.mjs";
 import { addBoundaries } from "./boundaries.mjs";
 import { addNeonTetra, addGoldfish } from "./fish.mjs";
 import { moveFish } from "./fishMovement.mjs";
-import { addAxes } from "./tools.mjs";
 import { addCoral } from "./decorations.mjs";
 import { addSeaweed } from "./decorations.mjs";
 
@@ -70,7 +72,7 @@ function init() {
 
 
     tankX = 100;
-    tankY = 50; //TODO: set the min and max for the location input thingos to the tankX, tankY and tankZ
+    tankY = 50;
     tankZ = 50;
 
 
@@ -123,6 +125,8 @@ function init() {
     counter = 0;
     render();
 
+    console.log(scene)
+
 }
 
 
@@ -174,7 +178,6 @@ function takeScreenshot() {
 }
 
 function clickHandler(event) {
-    console.log(event);
 
     //file button shows file sub menu
     if (event.target.id == "fileMenuButton") {
@@ -427,7 +430,7 @@ function goldfishAnimalsToolBarInputChange(event) {
     let input = event.srcElement;
     let slider = document.getElementById("goldfishAnimalsToolBarSlider");
 
-    input.value = clamp(input.value, input.min, input.max);
+    // input.value = clamp(input.value, input.min, input.max);
     
     goldfishAmount = input.value;
     slider.value = input.value;
