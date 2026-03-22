@@ -343,7 +343,7 @@ function selectObject(object) {
     
     //give object an outline
     outline = new THREE.EdgesHelper(selectedObject, "#7171ff"); // color
-    outline.material.linewidth = 10; // Set line thickness
+    outline.material.linewidth = 1; // Set line thickness
     scene.add(outline);
     
     // selectedObject.__dirtyPosition = true;
