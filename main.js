@@ -98,19 +98,19 @@ function init() {
     let animalsToolBar = document.getElementById("animalsToolBar");
     let decorationsToolBar = document.getElementById("decorationsToolBar");
 
+    document.getElementById("objectToolBarContent").style.display = "block";
     objectToolBar.style.left = editor.offsetWidth - objectToolBar.offsetWidth - 10 + "px";
     objectToolBar.style.top = 10 + "px";
-    document.getElementById("objectToolBarContent").style.display = "block";
     dragElement(objectToolBar, editor);
 
+    document.getElementById("animalsToolBarContent").style.display = "block";
     animalsToolBar.style.left = 10 + "px";
     animalsToolBar.style.top = editor.offsetHeight - animalsToolBar.offsetHeight - 10 + "px";
-    document.getElementById("animalsToolBarContent").style.display = "block";
     dragElement(animalsToolBar, editor);
 
+    document.getElementById("decorationsToolBarContent").style.display = "block";
     decorationsToolBar.style.left = editor.offsetWidth - decorationsToolBar.offsetWidth - 10 + "px";
     decorationsToolBar.style.top = editor.offsetHeight - decorationsToolBar.offsetHeight - 10 + "px";
-    document.getElementById("decorationsToolBarContent").style.display = "block";
     dragElement(decorationsToolBar, editor);
 
 
