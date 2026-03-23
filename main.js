@@ -1,6 +1,3 @@
-//the things I tried for transformControls are in selectObject() and deselectObject()
-
-
 import { addLighting, addTable, addWater, addTank, addSand } from "./visualEnvironment.mjs";
 import { addBoundaries } from "./boundaries.mjs";
 import { addNeonTetra, addGoldfish } from "./fish.mjs";
@@ -26,6 +23,8 @@ let editorVisible = true;
 let objectToolBarHidden = false;
 let animalsToolBarHidden = false;
 let decorationsToolBarHidden = false;
+let pointerDownX;
+let pointerDownY;
 
 function init() {
 
@@ -53,6 +52,30 @@ function init() {
 
     transformControls = new THREE.TransformControls(camera, renderer.domElement);
     scene.add(transformControls);
+
+
+    transformControls.addEventListener("change",
+        () => {
+            if (selectedObject) {
+                selectedObject.__dirtyPosition = true;
+                selectedObject.__dirtyRotation = true;
+
+                let min = new THREE.Vector3(-tankX/2, -tankY/2, -tankZ/2);
+                let max = new THREE.Vector3(tankX/2, tankY/2, tankZ/2);
+                transformControls.object.position.clamp(min, max);
+                transformControls.position.clamp(min, max);
+
+                objectToolBarChange(); //update the display
+            }
+        }
+    );
+    //not working
+    transformControls.minX = -tankX/2;
+    transformControls.maxX = tankX/2;
+    transformControls.minY = -tankY/2;
+    transformControls.maxY = tankY/2;
+    transformControls.minZ = -tankZ/2;
+    transformControls.maxZ = tankZ/2;
 
     camera.position.x = 100;
     camera.position.y = 50;
@@ -345,10 +368,16 @@ function selectObject(object) {
     outline = new THREE.EdgesHelper(selectedObject, "#7171ff"); // color
     outline.material.linewidth = 1; // Set line thickness
     scene.add(outline);
-    
-    // selectedObject.__dirtyPosition = true;
-    // selectedObject.__dirtyRotation = true;
-    // transformControls.attach(selectedObject);
+
+    //show deselect message
+    let instruction = document.getElementById("selectUserInstruction");
+    instruction.style.display = "block";
+
+    //turn off camera makes it a lot easier
+    camControls.enabled = false
+    camControls.state = -1;
+
+    transformControls.attach(selectedObject);
 
     objectToolBarChange();
 
@@ -360,45 +389,68 @@ function deselectObject() {
         scene.remove(outline);
         selectedObject = false;
         
-        // transformControls.detach();
+        transformControls.detach();
+
+        //hide deselect message
+        let instruction = document.getElementById("selectUserInstruction");
+        instruction.style.display = "none";
+
+        //turn camera back on
+        camControls.enabled = true;
+        camControls.state = -1; // reset camera state 
+
+        //fire fake mouse event so orbit controls aren't sticky and auto matically rotating
+        const evt = new MouseEvent('mouseup', {     
+            button: 0,
+            bubbles: true
+        });
+
+        camControls.domElement.dispatchEvent(evt);
     }
     objectToolBarChange();
 }
 
-
-
-function onDocumentMouseDown(event) {
-
-    if (event.target.id == "threeJSCanvas") {
-
-        let vector = new THREE.Vector3((event.clientX / window.innerWidth) * 2 - 1, -(event.clientY / window.innerHeight) * 2 + 1, 0.5);
+function pickObject(x,y) {
+    let vector = new THREE.Vector3((x / window.innerWidth) * 2 - 1, -(y / window.innerHeight) * 2 + 1, 0.5);
         projector.unprojectVector(vector, camera);
         let raycaster = new THREE.Raycaster(camera.position, vector.sub(camera.position).normalize());
         let intersects = raycaster.intersectObjects(scene.children);
 
         
-            let clickedObject = false;
-            for (let i = 0; i < intersects.length; i++) {
-                if (intersects[i].object.userData.type == "decoration") {
-                    clickedObject = intersects[i].object;
-                    break;
-                }
+        let clickedObject = false;
+        for (let i = 0; i < intersects.length; i++) {
+            if (intersects[i].object.userData.type == "decoration") {
+                clickedObject = intersects[i].object;
+                break;
             }
-
-
-            if (clickedObject) {
-                if (editorVisible){
-                    selectObject(clickedObject);
-                }
-                
-            } else {
-                deselectObject();
+        }
+        if (clickedObject) {
+            if (editorVisible){
+                selectObject(clickedObject);
             }
-            //update the selection (object menu)
-        
+        }
+}
+
+function onDocumentPointerDown(event) {
+    if (event.target.id == "threeJSCanvas") {
+        pointerDownX = event.clientX;
+        pointerDownY = event.clientY;
     }
+    
+    
+}
 
+function onDocumentPointerUp(event) {
 
+    if (event.target.id == "threeJSCanvas") {
+        if (pointerDownX == event.clientX && pointerDownY == event.clientY) {
+            if (selectedObject) {
+                deselectObject();
+            } else {
+                pickObject(event.clientX, event.clientY);
+            }
+        }
+    }
 }
 
 
@@ -697,11 +749,36 @@ function dragElement(element, area) {
 }
 
 
+//because cannot get the camera controls back when in transform mode
+document.addEventListener("keydown",
+    (event) => {
+        if (event.code === "Escape") {
+            deselectObject();
+        }
+    }
+);
+document.addEventListener("keydown",
+    (event) => {
+        if (event.code === "KeyR") {
+            transformControls.mode = "rotate";
+        }
+    }
+);
+document.addEventListener("keydown",
+    (event) => {
+        if (event.code === "KeyT") {
+            transformControls.mode = "transform";
+        }
+    }
+);
+
+
 window.addEventListener("load", init);
 window.addEventListener("resize", resize);
 
 document.addEventListener("click", clickHandler);
-document.addEventListener('mousedown', onDocumentMouseDown, false);
+document.addEventListener("pointerdown", onDocumentPointerDown);
+document.addEventListener("pointerup", onDocumentPointerUp);
 
 
 

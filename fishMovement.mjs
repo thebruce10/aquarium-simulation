@@ -75,7 +75,7 @@ export function applyDrag(fish) {
 
 
 export function startMovement(fish, counter) {
-    fish.userData.velocity = Math.random() * 5 * fish.userData.speed + 2.5;
+    fish.userData.velocity = (Math.random() * 5  + 10) * fish.userData.speed;
     fish.userData.endMovement = counter + Math.floor(Math.random() * 1000) + 120;
     fish.userData.endRest = fish.userData.endMovement + Math.floor(Math.random() * 100) + 120;
 
