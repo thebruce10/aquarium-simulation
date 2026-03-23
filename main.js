@@ -274,8 +274,10 @@ function clickHandler(event) {
 
     //delete button deletes an object
     if (event.target.id == "deleteMenuButton") {
-        let deletePopup = document.getElementById("deletePopup");
-        deletePopup.style.display = "block";
+        if (selectedObject) {
+            let deletePopup = document.getElementById("deletePopup");
+            deletePopup.style.display = "block";
+        }
     }
     if (event.target.id == "yesDeletePopupButton") {
         //delete the object
@@ -378,6 +380,7 @@ function selectObject(object) {
     camControls.state = -1;
 
     transformControls.attach(selectedObject);
+    transformControls.setMode("translate");
 
     objectToolBarChange();
 
@@ -749,28 +752,32 @@ function dragElement(element, area) {
 }
 
 
-//because cannot get the camera controls back when in transform mode
-document.addEventListener("keydown",
-    (event) => {
-        if (event.code === "Escape") {
+function onDocumentKeyDown(event) {
+
+    switch (event.code) {
+        case "Escape":
             deselectObject();
-        }
+            break;
+        case "KeyR":
+            transformControls.setMode("rotate");
+            break;
+        case "KeyT":
+            transformControls.setMode("transform");
+            break;
+        case "Delete":
+            if (selectedObject) {
+                let deletePopup = document.getElementById("deletePopup");
+                deletePopup.style.display = "block";
+            }
+            break;
+
     }
-);
-document.addEventListener("keydown",
-    (event) => {
-        if (event.code === "KeyR") {
-            transformControls.mode = "rotate";
-        }
-    }
-);
-document.addEventListener("keydown",
-    (event) => {
-        if (event.code === "KeyT") {
-            transformControls.mode = "transform";
-        }
-    }
-);
+
+}
+
+
+//because cannot get the camera controls back when in transform mode
+document.addEventListener("keydown", onDocumentKeyDown);
 
 
 window.addEventListener("load", init);
