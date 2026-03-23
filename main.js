@@ -762,7 +762,7 @@ function onDocumentKeyDown(event) {
             transformControls.setMode("rotate");
             break;
         case "KeyT":
-            transformControls.setMode("transform");
+            transformControls.setMode("translate");
             break;
         case "Delete":
             if (selectedObject) {

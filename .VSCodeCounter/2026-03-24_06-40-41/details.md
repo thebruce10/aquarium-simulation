@@ -1,10 +1,10 @@
 # Details
 
-Date : 2026-03-24 06:31:15
+Date : 2026-03-24 06:40:41
 
 Directory c:\\Users\\Leinad\\OneDrive - Department of Education\\Documents\\0 School\\2026\\Term 1\\Digital Solutions\\Final\\aquarium-simulation
 
-Total : 41 files,  27747 codes, 3539 comments, 17827 blanks, all 49113 lines
+Total : 41 files,  27748 codes, 3539 comments, 17825 blanks, all 49112 lines
 
 [Summary](results.md) / Details / [Diff Summary](diff.md) / [Diff Details](diff-details.md)
 
@@ -49,7 +49,7 @@ Total : 41 files,  27747 codes, 3539 comments, 17827 blanks, all 49113 lines
 | [libs/three.js](/libs/three.js) | JavaScript | 18,415 | 2,375 | 13,941 | 34,731 |
 | [libs/tween.js](/libs/tween.js) | JavaScript | 404 | 20 | 318 | 742 |
 | [main.css](/main.css) | PostCSS | 321 | 0 | 37 | 358 |
-| [main.js](/main.js) | JavaScript | 569 | 47 | 183 | 799 |
+| [main.js](/main.js) | JavaScript | 570 | 47 | 181 | 798 |
 | [tools.mjs](/tools.mjs) | JavaScript | 57 | 0 | 8 | 65 |
 | [visualEnvironment.mjs](/visualEnvironment.mjs) | JavaScript | 111 | 11 | 37 | 159 |
 

@@ -1,4 +1,4 @@
-"filename", "language", "JavaScript", "Markdown", "PostCSS", "HTML", "XML", "comment", "blank", "total"
+"filename", "language", "JavaScript", "PostCSS", "Markdown", "HTML", "XML", "comment", "blank", "total"
 "c:\Users\Leinad\OneDrive - Department of Education\Documents\0 School\2026\Term 1\Digital Solutions\Final\aquarium-simulation\README.md", "Markdown", 0, 0, 0, 0, 0, 0, 1, 1
 "c:\Users\Leinad\OneDrive - Department of Education\Documents\0 School\2026\Term 1\Digital Solutions\Final\aquarium-simulation\boundaries.mjs", "JavaScript", 53, 0, 0, 0, 0, 6, 8, 67
 "c:\Users\Leinad\OneDrive - Department of Education\Documents\0 School\2026\Term 1\Digital Solutions\Final\aquarium-simulation\decorations.mjs", "JavaScript", 71, 0, 0, 0, 0, 0, 35, 106
@@ -36,8 +36,8 @@
 "c:\Users\Leinad\OneDrive - Department of Education\Documents\0 School\2026\Term 1\Digital Solutions\Final\aquarium-simulation\libs\stats.min.js", "JavaScript", 5, 0, 0, 0, 0, 1, 0, 6
 "c:\Users\Leinad\OneDrive - Department of Education\Documents\0 School\2026\Term 1\Digital Solutions\Final\aquarium-simulation\libs\three.js", "JavaScript", 18415, 0, 0, 0, 0, 2375, 13941, 34731
 "c:\Users\Leinad\OneDrive - Department of Education\Documents\0 School\2026\Term 1\Digital Solutions\Final\aquarium-simulation\libs\tween.js", "JavaScript", 404, 0, 0, 0, 0, 20, 318, 742
-"c:\Users\Leinad\OneDrive - Department of Education\Documents\0 School\2026\Term 1\Digital Solutions\Final\aquarium-simulation\main.css", "PostCSS", 0, 0, 321, 0, 0, 0, 37, 358
-"c:\Users\Leinad\OneDrive - Department of Education\Documents\0 School\2026\Term 1\Digital Solutions\Final\aquarium-simulation\main.js", "JavaScript", 569, 0, 0, 0, 0, 47, 183, 799
+"c:\Users\Leinad\OneDrive - Department of Education\Documents\0 School\2026\Term 1\Digital Solutions\Final\aquarium-simulation\main.css", "PostCSS", 0, 321, 0, 0, 0, 0, 37, 358
+"c:\Users\Leinad\OneDrive - Department of Education\Documents\0 School\2026\Term 1\Digital Solutions\Final\aquarium-simulation\main.js", "JavaScript", 570, 0, 0, 0, 0, 47, 181, 798
 "c:\Users\Leinad\OneDrive - Department of Education\Documents\0 School\2026\Term 1\Digital Solutions\Final\aquarium-simulation\tools.mjs", "JavaScript", 57, 0, 0, 0, 0, 0, 8, 65
 "c:\Users\Leinad\OneDrive - Department of Education\Documents\0 School\2026\Term 1\Digital Solutions\Final\aquarium-simulation\visualEnvironment.mjs", "JavaScript", 111, 0, 0, 0, 0, 11, 37, 159
-"Total", "-", 27259, 0, 321, 123, 44, 3539, 17827, 49113
+"Total", "-", 27260, 321, 0, 123, 44, 3539, 17825, 49112
