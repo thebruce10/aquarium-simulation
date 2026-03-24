@@ -175,6 +175,14 @@ function resize() {
     camera.aspect = window.innerWidth / window.innerHeight;
     camera.updateProjectionMatrix();
     renderer.setSize(window.innerWidth, window.innerHeight);
+
+    let editor = document.getElementById("editor");
+    let objectToolBar = document.getElementById("objectToolBar");
+    let animalsToolBar = document.getElementById("animalsToolBar");
+    let decorationsToolBar = document.getElementById("decorationsToolBar");
+    clampElementPosition(objectToolBar, editor);
+    clampElementPosition(animalsToolBar, editor);
+    clampElementPosition(decorationsToolBar, editor);
 }
 
 
@@ -319,6 +327,9 @@ function clickHandler(event) {
         } else {
             button.innerHTML = "&#9660";
             content.style.display = "block";
+            let editor = document.getElementById("editor");
+            let objectToolBar = document.getElementById("objectToolBar");
+            clampElementPosition(objectToolBar, editor);
         }
     }
 
@@ -332,6 +343,9 @@ function clickHandler(event) {
         } else {
             button.innerHTML = "&#9660";
             content.style.display = "block";
+            let editor = document.getElementById("editor");
+            let animalsToolBar = document.getElementById("animalsToolBar");
+            clampElementPosition(animalsToolBar, editor);
         }
     }
 
@@ -345,6 +359,9 @@ function clickHandler(event) {
         } else {
             button.innerHTML = "&#9660";
             content.style.display = "block";
+            let editor = document.getElementById("editor");
+            let decorationsToolBar = document.getElementById("decorationsToolBar");
+            clampElementPosition(decorationsToolBar, editor);
         }
     }
 
@@ -456,8 +473,6 @@ function onDocumentPointerUp(event) {
     }
 }
 
-
-
 function neonTetraAnimalsToolBarSliderChange(event) {
     let slider = event.srcElement;
     let input = document.getElementById("neonTetraAnimalsToolBarInput");
@@ -493,7 +508,6 @@ function goldfishAnimalsToolBarInputChange(event) {
     goldfishAmount = input.value;
     slider.value = input.value;
 }
-
 
 function clamp(number, min, max) {
     return Math.min(Math.max(number, min), max);
@@ -751,6 +765,12 @@ function dragElement(element, area) {
     }
 }
 
+function clampElementPosition(element, area) {
+    console.log(parseInt(element.style.top), 0, area.offsetHeight - element.offsetHeight);
+    console.log();
+    element.style.top = clamp(parseInt(element.style.top), 0, area.offsetHeight - element.offsetHeight) + "px";
+    element.style.left = clamp(parseInt(element.style.left), 0, area.offsetWidth - element.offsetWidth) + "px";
+}
 
 function onDocumentKeyDown(event) {
 
