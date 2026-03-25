@@ -776,13 +776,23 @@ function onDocumentKeyDown(event) {
 
     switch (event.code) {
         case "Escape":
-            deselectObject();
+            if (selectedObject) {
+                deselectObject();
+            }
             break;
         case "KeyR":
-            transformControls.setMode("rotate");
+            if (selectedObject) {
+                    if (!document.activeElement.classList.contains("toolBarInput")) {
+                    transformControls.setMode("rotate");
+                }
+            }
             break;
         case "KeyT":
-            transformControls.setMode("translate");
+            if (selectedObject) {
+                    if (!document.activeElement.classList.contains("toolBarInput")) {
+                    transformControls.setMode("translate");
+                }
+            }
             break;
         case "Delete":
             if (selectedObject) {
