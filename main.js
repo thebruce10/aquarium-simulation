@@ -69,13 +69,6 @@ function init() {
             }
         }
     );
-    //not working
-    transformControls.minX = -tankX/2;
-    transformControls.maxX = tankX/2;
-    transformControls.minY = -tankY/2;
-    transformControls.maxY = tankY/2;
-    transformControls.minZ = -tankZ/2;
-    transformControls.maxZ = tankZ/2;
 
     camera.position.x = 100;
     camera.position.y = 50;
@@ -116,7 +109,8 @@ function init() {
 
     refreshAnimalsToolBar();
 
-    let editor = document.getElementById("editor")
+    let editor = document.getElementById("editor");
+    editor.style.display = "block";
     let objectToolBar = document.getElementById("objectToolBar");
     let animalsToolBar = document.getElementById("animalsToolBar");
     let decorationsToolBar = document.getElementById("decorationsToolBar");
@@ -138,6 +132,10 @@ function init() {
     decorationsToolBar.style.left = editor.offsetWidth - decorationsToolBar.offsetWidth - 10 + "px";
     decorationsToolBar.style.top = editor.offsetHeight - decorationsToolBar.offsetHeight - 10 + "px";
     dragElement(decorationsToolBar, editor);
+
+    if (!editorVisible) {
+        editor.style.display = "none";
+    }
 
 
 
@@ -806,7 +804,6 @@ function onDocumentKeyDown(event) {
 }
 
 
-//because cannot get the camera controls back when in transform mode
 document.addEventListener("keydown", onDocumentKeyDown);
 
 
