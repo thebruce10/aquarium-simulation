@@ -455,7 +455,6 @@ function onDocumentPointerDown(event) {
         pointerDownY = event.clientY;
     }
     
-    
 }
 
 function onDocumentPointerUp(event) {

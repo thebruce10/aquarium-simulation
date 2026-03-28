@@ -91,8 +91,6 @@ export function move(fish, counter, tankX, tankY, tankZ) {
         const dir = fish.getWorldDirection(new THREE.Vector3()).normalize();
         const force = dir.multiplyScalar(fish.userData.velocity);
         fish.applyCentralForce(force);
-    } else {
-
     }
 
     //this is the don't escape code
