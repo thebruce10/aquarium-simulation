@@ -1,6 +1,5 @@
 import { addLighting, addTable, addWater, addTank, addSand } from "./visualEnvironment.mjs";
 import { addBoundaries } from "./boundaries.mjs";
-import { addNeonTetra, addGoldfish } from "./fish.mjs";
 import { moveFish } from "./fishMovement.mjs";
 import { addCoral } from "./decorations.mjs";
 import { addSeaweed } from "./decorations.mjs";
